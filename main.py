@@ -1,12 +1,15 @@
 import gi
+
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GLib, Gdk
+
+from playkivy import *
+
+
 
 ui = Gtk.Builder()
 
 ui.add_from_file("main.glade")
-
-
 
 class Handler:
     def __init__(self, *args, **kwargs):
@@ -42,15 +45,30 @@ class Handler:
         texto = self.texto.get_buffer()
 
         print(texto.get_text(texto.get_start_iter(),texto.get_end_iter(),0 ))
-        print("sucesso")
+    
+    def visualizar(self,asd):
+        print("kmsokmf")
+
+        app = None
+        app = PlaygroundApp()
+        app.run()
+
     
 
 ui.connect_signals(Handler())
 
 
-window = ui.get_object("principal")
+
+
+
+
+
 window = ui.get_object("ide")
 window.show_all()
 
 Gtk.main()
+
+
+
+
 
