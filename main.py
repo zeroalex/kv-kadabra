@@ -6,7 +6,6 @@ from gi.repository import Gtk, GLib, Gdk
 from playkivy import *
 
 
-
 ui = Gtk.Builder()
 
 ui.add_from_file("main.glade")
@@ -19,7 +18,7 @@ class Handler:
         self.entrada = ui.get_object("entrada")
         
         self.texto = ui.get_object("texto")
-
+        self.carregar = ""
 
 
 
@@ -45,22 +44,18 @@ class Handler:
         texto = self.texto.get_buffer()
 
         print(texto.get_text(texto.get_start_iter(),texto.get_end_iter(),0 ))
+        self.carregar = texto.get_text(texto.get_start_iter(),texto.get_end_iter(),0 )
     
     def visualizar(self,asd):
         print("kmsokmf")
 
         app = None
-        app = PlaygroundApp()
+        app = PlaygroundApp(self.carregar)
         app.run()
 
     
 
 ui.connect_signals(Handler())
-
-
-
-
-
 
 
 window = ui.get_object("ide")

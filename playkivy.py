@@ -26,10 +26,13 @@ class PlaygroundScreen(Screen):
     editor_pane = ObjectProperty(None)
     kivy_text = "test"
 
-    def __init__(self,**kwargs):
-        super(PlaygroundScreen,self).__init__(**kwargs)
+    def __init__(self,entrada):
+        self.entrada = entrada
+        super(PlaygroundScreen,self).__init__()
         text = "#type\nBoxLayout:\n   Label:\n      text:'hmlmi'\n   Button:\n      text:'hmlmi'"
-        self.creation = Builder.load_string(text)
+        print(self.entrada)
+
+        self.creation = Builder.load_string(self.entrada)
         
         self.content_pane.add_widget(self.creation)
     
@@ -55,15 +58,18 @@ class PlaygroundScreen(Screen):
         except Exception as e:
             print(e)
 
-        
 
 class PGScreenManager(ScreenManager):
     pass
 
 class PlaygroundApp(App):
+    def __init__(self,entrada):
+        self.entrada = entrada
+        super(PlaygroundApp,self).__init__()
 
     def build(self):
-        self.pgs = PlaygroundScreen(name='pgs')
+        
+        self.pgs = PlaygroundScreen(self.entrada)
         
         return self.pgs
 
