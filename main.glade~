@@ -335,6 +335,7 @@
                 <property name="label" translatable="yes">bt1</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-about</property>
+                <signal name="clicked" handler="visualizar" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -362,6 +363,21 @@
             <property name="position">2</property>
           </packing>
         </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="tela2">
+    <property name="can_focus">False</property>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkButton" id="botaorun">
+        <property name="label" translatable="yes">button</property>
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="receives_default">True</property>
+        <signal name="clicked" handler="botaorun" swapped="no"/>
       </object>
     </child>
   </object>
